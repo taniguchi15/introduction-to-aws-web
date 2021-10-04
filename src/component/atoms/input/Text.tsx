@@ -3,49 +3,56 @@ import './Text.sass'
 
 type Props = {
   label: string  
+  keyName: string
   value: string
-  changeValue?: (s: string) => void
+  onChange?: (key: string, value: string, isValid: boolean) => void
   required?: boolean
   regex?: RegExp
   viewValidationResult?: boolean
-  isValid?: (b: boolean) => void
 }
 
 const Component: FC<Props> = ({
 
   label,
   value,
-  changeValue = () => {},
+  keyName,
+  onChange = () => {},
   required = false,
   regex = null,
   viewValidationResult = false,
-  isValid = () => {},
 
 }) => {
 
   const [valid, setValid] =  useState(false)
-  const onChange = useCallback(event => changeValue(event.target.value), [changeValue])
 
   useEffect(() => {
+    if (!required) {
+      setValid(true)
+      onChange(keyName, value, true)
+    } 
+  }, [])
+
+  const change = useCallback(event => {
     let vald = true
-    if (value) {
-      vald = regex ? regex?.test(value) : true
+    const val = event.target.value
+    if (val) {
+      vald = regex ? regex.test(val) : true
     }else if (required) {
       vald = false
     }
-    isValid(vald)
     setValid(vald)
-  }, [value])
+    onChange(keyName, val, vald)
+  }, [onChange])
 
   return (
     <div className="compo-text">
-    <div className="label">
-      <p>{label}</p>
-      { required && <span>必須</span> }
+      <div className="label">
+        <p>{label}</p>
+        { required && <span>必須</span> }
+      </div>
+      <input type="text" value={value} onChange={change} />
+      { viewValidationResult && !valid &&  <span className="error">入力値が不正です</span> }
     </div>
-    <input type="text" value={value} onChange={onChange} />
-    { viewValidationResult && !valid &&  <span className="error">入力値が不正です</span> }
-  </div>
   )
 }
 export default Component
