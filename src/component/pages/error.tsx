@@ -14,11 +14,13 @@ type State = {
  const getMessage = (httpStatusCode: number): string => {
   switch (httpStatusCode) {
     case 404:
-      return  "ページが見つかりません。"
+      return "ページが見つかりません。"
+    case 400:
+      return "エラーが発生しました。最初からやり直してください。"
     case 500:
-      return  "サーバーエラーが発生しました。しばらく時間をおいてもう一度実行してください。"
+      return "サーバーエラーが発生しました。時間をおいてもう一度実行してください。"
     default:
-      return  "エラーが発生しました。"
+      return "エラーが発生しました。時間をおいてもう一度実行してください。"
   }
 }
 

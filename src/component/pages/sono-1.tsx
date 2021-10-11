@@ -1,10 +1,15 @@
 import React, {useState, useCallback, useEffect} from 'react'
+
+import useAxios from '../../hooks/axios'
+
 import Title from '../atoms/view/Title'
 import Text from '../atoms/input/Text'
 
 import './sono-1.sass'
 
 function App() {
+
+  const axios = useAxios()
 
   const [inputs, setInputs] = useState({
     name: '',
@@ -67,6 +72,7 @@ function App() {
 
     if (!valid) return
 
+    /*
     fetch("/api/v1/user", {
       method: 'POST',
       headers: {
@@ -77,6 +83,16 @@ function App() {
         age: Number(inputs.age),
         zipCode: Number(inputs.zipCode),
       })
+    }).then(() => {
+      alert('succsess')
+      setViewValidationResult(false)
+    })
+    */
+
+    axios.post('/user', {
+      ...inputs,
+      age: Number(inputs.age),
+      zipCode: Number(inputs.zipCode),
     }).then(() => {
       alert('succsess')
       setViewValidationResult(false)
