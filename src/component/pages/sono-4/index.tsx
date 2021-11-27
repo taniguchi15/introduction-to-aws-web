@@ -25,7 +25,7 @@ function App() {
     <div className="page-sono-4">
       <Title
         detail="その4"
-        url="https://blog.taniguchi.tech/archives/547"
+        url="https://blog.taniguchi.tech/archives/2485"
       />
       <p className="contents">画面種別共通処理</p>
       <div className="sono-4">

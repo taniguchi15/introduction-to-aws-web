@@ -13,8 +13,7 @@ const Component: FC = () => {
     <div className="page-index">
       <Title
         detail="Top"
-        url="https://blog.taniguchi.tech/archives/547"
-        viewNuxtTop={true}
+        url="https://blog.taniguchi.tech/archives/2485"
       />
       <p className="contents">Contents</p>
       <ul>

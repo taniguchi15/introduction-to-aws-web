@@ -18,8 +18,8 @@ const Component: FC<Props> = ({
 
   return (
     <div className="compo-title">
-      <h1>Nuxt.js VS React.js</h1>
-      <p className="compar">実装比較</p>
+      <h1>AWS 入門</h1>
+      <p className="compar">from CodeCommit</p>
       { detail && <p className="detail">{detail}</p> }
       { url && <p className="link">About: <a href={url}>{url}</a></p> }
       { viewNuxtTop && <p className="link"><a href="/nuxt">Nuxt.jsのTop</a></p> }

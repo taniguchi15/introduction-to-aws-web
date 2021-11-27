@@ -105,7 +105,7 @@ function App() {
     <div className="page-sono-1">
       <Title
         detail="その1"
-        url="https://blog.taniguchi.tech/archives/547"
+        url="https://blog.taniguchi.tech/archives/2485"
       />
       <Text
         label="名前"

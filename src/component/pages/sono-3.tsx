@@ -28,7 +28,7 @@ function App() {
     <div className="page-sono-3">
       <Title
         detail="その3"
-        url="https://blog.taniguchi.tech/archives/547"
+        url="https://blog.taniguchi.tech/archives/2485"
       />
       <p className="contents">3種類のAPI</p>
       <div className="buttons">

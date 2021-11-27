@@ -45,7 +45,7 @@ function App() {
     <div className="page-sono-4">
       <Title
         detail="その2"
-        url="https://blog.taniguchi.tech/archives/547"
+        url="https://blog.taniguchi.tech/archives/2485"
       />
       <p className="contents">ログイン</p>
       <Text
